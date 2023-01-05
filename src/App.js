@@ -3,13 +3,12 @@ import React, { useState } from 'react';
 
 // Internal imports
 import './App.css';
-/*
-import './img/headshot.png';
-*/
+import headshot from './img/headshot.png';
 
 function App() {
 
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   function displaySettings() {};
 
@@ -18,9 +17,7 @@ function App() {
     <main className="App">
       {isDarkMode === true && <div className="darkMode" />}
       <section className="ImageContainer">
-        {/* Under const}
-        <img src="./img/headshot.png" />
-  {*/}
+        <img className="Headshot" src={headshot} alt="Anthony Volk seated in front of brown background"/>
       </section>
       <section className="InfoContainer">
         <div className="InfoHead">
@@ -42,6 +39,18 @@ function App() {
           <a className="ButtonFooter" href="https://github.com/anth-volk"><i className="fa-brands fa-square-github"></i></a>
           <a className="ButtonFooter" href="https://codesandbox.io/u/anth-volk"><i className="fa-regular fa-square"></i></a>
           <div className="ButtonFooter" onClick={displaySettings}><i className="fa-solid fa-gear"></i></div>
+          <div className="SettingsMenu">
+            <label className="switch">
+              <input
+                type="checkbox"
+                aria-labelledby="App_themeLabel--dark"
+                /*
+                onChange={handleThemeChange}
+                */
+              />
+              <span className="slider"></span>
+            </label>
+          </div>
         </div>
       </section>
     </main>
