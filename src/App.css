@@ -1,38 +1,198 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* STYLE RESET (inspired by https://piccalil.li/blog/a-modern-css-reset/) */
+  
+  /* Remove default margin */
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  /* SITE-WIDE STYLING: ELEMENT BEHAVIOR */
+  
+  /* Add global border-box */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
-  to {
-    transform: rotate(360deg);
+  
+  /* Set site-wide smooth scrolling */
+  html:focus-within {
+    scroll-behavior: smooth;
   }
-}
+  
+  /* Set core body defaults */
+  body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.25;
+  }
+  
+  /* Images fill container */
+  img,
+  picture {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* Root Vars */
+  :root {
+    --background-color: #23252c;
+    --l1-color: #f5f5f5;
+    --button-color: rgba(255,255,255,0.87);
+    --button-background: #115293;
+    --app-width: 80vw;
+    --app-max-width: 400px;
+    --h1-font: "Montserrat", Helvetica, sans-serif;
+    --h1-size: 1.5rem;
+    --h1-color: rgba(0,0,0,0.87);
+    --p-font: "Fira Sans", Arial, sans-serif;
+    --p-size: 1rem;
+    --p-color: rgba(0,0,0,0.6);
+  }
+
+  /* Dark Mode Div Styling */
+  .darkMode {
+    --h1-color: rgba(255,255,255,0.87);
+    --p-color: rgba(255,255,255,0.6);
+    --l1-color: #121212;
+    --button-color: rgba(255,255,255,0.87);
+    --button-background: #1769aa;
+  }
+
+
+
+  /* Tag Styling */
+
+  h1,
+  h2,
+  h3 {
+    color: var(--h1-color);
+    font-family: var(--h1-font);
+  }
+
+  h1 {
+    font-size: var(--h1-size);
+    text-align: center;
+  }
+
+  h2,
+  h3 {
+    font-size: 1.25rem;
+    padding-top: 0.5rem;
+  }
+
+  p,
+  a {
+    color: var(--p-color);
+    font-family: var(--p-font);
+    font-size: var(--p-size);
+    text-decoration: none;
+  }
+
+  i {
+    display: inline;
+    font-size: 1.25rem;
+    vertical-align: bottom;
+    color: inherit;
+  }
+
+
+
+  /* Element Styling */
+
+  .App {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+  }
+
+  .ImageContainer, 
+  .InfoContainer {
+    width: var(--app-width);
+    max-width: var(--app-max-width);
+    border-radius: 8px;
+  }
+
+  .InfoContainer {
+    padding: 2vh 5vw 5vw 5vw;
+    background-color: var(--l1-color);
+  }
+
+  .InfoHead {
+    text-align: center;
+  }
+
+  .InfoBody {
+    padding-top: 1rem;
+  }
+
+  .InfoHead_link {
+    padding-top: 0.25rem;
+  }
+
+  .InfoFooter {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12.5%;
+  }
+  
+  .ButtonWrapper {
+    padding-top: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ButtonWrapper > a {
+    margin: 0 auto;
+    width: 90%;
+    border-radius: 4px;
+    padding: 0.25rem 0;
+    color: var(--button-color);
+    background-color: var(--button-background);
+  }
+
+  .ButtonWrapper > a > p {
+    display: inline;
+    padding-left: 8px;
+    color: var(--button-color);
+  }
+
+  .ButtonFooter {
+    cursor: pointer;
+    color: var(--p-color);
+  }
+
+  /* Accessibility */
+
+  @media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+      scroll-behavior: auto;
+    }
+  
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
