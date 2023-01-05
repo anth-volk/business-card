@@ -10,17 +10,22 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
-  function displaySettings() {};
+  function displaySettings() {
+    setIsSettingsOpen(prevState => !prevState);
+  };
+
+  function handleThemeChange() {
+    setIsDarkMode(prevState => !prevState);
+  };
 
 
   return (
-    <main className="App">
-      {isDarkMode === true && <div className="darkMode" />}
-      <section className="ImageContainer">
+    <main className={`App ${isDarkMode ? "darkMode" : ""}`}>
+      <section className={`ImageContainer ${isSettingsOpen ? "blurred" : ""}`}>
         <img className="Headshot" src={headshot} alt="Anthony Volk seated in front of brown background"/>
       </section>
       <section className="InfoContainer">
-        <div className="InfoHead">
+        <div className={`InfoHead ${isSettingsOpen? "blurred" : ""}`}>
           <h1>Anthony Volk</h1>
           <h2 className="InfoHead_position">Aspiring Fullstack Developer</h2>
           <a className="InfoHead_link" href="http://www.anthonyvolk.com" target="_blank" rel="noreferrer"><p>anthonyvolk.com</p></a>
@@ -29,7 +34,7 @@ function App() {
             <a className="ButtonLinkedIn" href="https://linkedin.com/in/anthonyvolk"><i class="fa-brands fa-linkedin"></i><p>LinkedIn</p></a>
           </div>
         </div>
-        <div className="InfoBody">
+        <div className={`InfoBody ${isSettingsOpen ? "blurred" : ""}`}>
           <h2>About Me</h2>
           <p>I'm an aspiring fullstack developer with an interest in ethical and just tech that empowers individuals and changes communities. I'm currently looking for full-time and freelance work where I can use my tech skills to make an impact.</p>
           <h2>Interests</h2>
@@ -39,17 +44,20 @@ function App() {
           <a className="ButtonFooter" href="https://github.com/anth-volk"><i className="fa-brands fa-square-github"></i></a>
           <a className="ButtonFooter" href="https://codesandbox.io/u/anth-volk"><i className="fa-regular fa-square"></i></a>
           <div className="ButtonFooter" onClick={displaySettings}><i className="fa-solid fa-gear"></i></div>
-          <div className="SettingsMenu">
-            <label className="switch">
-              <input
-                type="checkbox"
-                aria-labelledby="App_themeLabel--dark"
-                /*
-                onChange={handleThemeChange}
-                */
-              />
-              <span className="slider"></span>
-            </label>
+          <div className={`SettingsMenu ${isSettingsOpen ? "" : "hidden"}`}>
+            <h2 className="SettingsHeader">Settings</h2>
+            <div className="SettingsControls">
+              <p className="SettingsText">Light Mode</p>
+              <label className="switch">
+                <input
+                  type="checkbox"
+                  value={isDarkMode}
+                  onChange={handleThemeChange}
+                />
+                <span className="slider"></span>
+              </label>
+              <p className="SettingsText">Dark Mode</p>
+            </div>
           </div>
         </div>
       </section>
