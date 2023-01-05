@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 
 // Internal imports
 import './App.css';
-import headshot from './img/headshot.png';
+import headshot from './resources/headshot.png';
+import vcard from './resources/vcard.vcf';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
           <div className="ButtonWrapper">
             <a className="ButtonEmail" href="mailto:anth.volk@gmail.com"><i class="fa-solid fa-envelope"></i><p>Email</p></a>
             <a className="ButtonLinkedIn" href="https://linkedin.com/in/anthonyvolk"><i class="fa-brands fa-linkedin"></i><p>LinkedIn</p></a>
+            <a className="ButtonVCF" href="https://linkedin.com/in/anthonyvolk"><i class="fa-brands fa-linkedin"></i><p>LinkedIn</p></a>
           </div>
         </div>
         <div className={`InfoBody ${isSettingsOpen ? "blurred" : ""}`}>

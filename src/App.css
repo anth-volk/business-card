@@ -190,7 +190,7 @@
   .ButtonWrapper {
     padding-top: 0.5rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template: 1fr 1fr / 1fr 1fr;
   }
 
   .ButtonWrapper > a {
