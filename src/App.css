@@ -123,7 +123,7 @@
     justify-content: center;
     align-items: center;
     gap: 2vh;
-    padding: 10vw;
+    padding: 8vw;
   }
 
   .ImageContainer, 
@@ -191,11 +191,12 @@
     padding-top: 0.5rem;
     display: grid;
     grid-template: 1fr 1fr / 1fr 1fr;
+    gap: 2vw;
   }
 
   .ButtonWrapper > a {
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
     border-radius: 4px;
     padding: 0.25rem 0;
     color: var(--button-color);
@@ -206,6 +207,10 @@
     display: inline;
     padding-left: 8px;
     color: var(--button-color);
+  }
+
+  .ButtonVCF {
+    grid-column: 1 / -1;
   }
 
   .ButtonFooter {

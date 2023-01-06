@@ -32,8 +32,8 @@ function App() {
           <a className="InfoHead_link" href="http://www.anthonyvolk.com" target="_blank" rel="noreferrer"><p>anthonyvolk.com</p></a>
           <div className="ButtonWrapper">
             <a className="ButtonEmail" href="mailto:anth.volk@gmail.com"><i class="fa-solid fa-envelope"></i><p>Email</p></a>
-            <a className="ButtonLinkedIn" href="https://linkedin.com/in/anthonyvolk"><i class="fa-brands fa-linkedin"></i><p>LinkedIn</p></a>
-            <a className="ButtonVCF" href="https://linkedin.com/in/anthonyvolk"><i class="fa-brands fa-linkedin"></i><p>LinkedIn</p></a>
+            <a className="ButtonLinkedIn" href="https://linkedin.com/in/anthonyvolk" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin"></i><p>LinkedIn</p></a>
+            <a className="ButtonVCF" href={vcard}><i class="fa-solid fa-address-card"></i><p>Add as contact...</p></a>
           </div>
         </div>
         <div className={`InfoBody ${isSettingsOpen ? "blurred" : ""}`}>
