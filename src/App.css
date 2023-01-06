@@ -123,7 +123,7 @@
     justify-content: center;
     align-items: center;
     gap: 2vh;
-    padding: 8vw;
+    padding: 6vw;
   }
 
   .ImageContainer, 
@@ -134,7 +134,8 @@
   }
 
   .ImageContainer {
-    height: 40%;
+    height: 33%;
+    width: 60%;
     overflow: hidden;
     transition: filter 400ms linear;
   }
@@ -144,7 +145,7 @@
   }
 
   .InfoContainer {
-    height: 60%;
+    height: 67%;
     padding: 2vh 5vw;
     background-color: var(--l1-color);
     overflow: scroll;
