@@ -59,7 +59,7 @@
     
     /* Based on https://css-tricks.com/snippets/css/fluid-typography/ */
 
-    --p-size: calc(9px + (26 - 9) * ((100vw - 300px) / (576 - 300)));
+    --p-size: calc(11px + (26 - 11) * ((100vw - 300px) / (576 - 300)));
     --h1-size: calc(1.5 * var(--p-size));
     --h2-size: calc(1.25 * var(--p-size));
   }
@@ -124,6 +124,7 @@
     align-items: center;
     gap: 2vh;
     padding: 6vw;
+    overflow: scroll;
   }
 
   .ImageContainer, 
@@ -147,7 +148,6 @@
     width: 100%;
     padding: 2vh 5vw;
     background-color: var(--l1-color);
-    overflow: scroll;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -334,10 +334,11 @@
     }
   }
 
-  @media screen and (min-width: 601px) {
+  @media screen and (min-width: 568px) {
     :root {
-      --p-size: calc (8px + (16 - 8) * ((100vw - 601px) / (991 - 601)));
+      --p-size: calc(11px + (16 - 11) * ((100vw - 568px) / (991 - 568)));
       --app-max-width: 900px;
+
     }
 
     i {
