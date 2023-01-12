@@ -279,8 +279,8 @@
     }
 
     .Headshot {
-      height: 60%;
       width: 100%;
+      aspect-ratio: 7/8;
     }
 
     .InfoContainer {
