@@ -1,7 +1,7 @@
 // External imports
 import React, { useState } from 'react';
 import Icon from '@mdi/react';
-import { mdiLinkedin, mdiGithub, mdiCropSquare, mdiEmail } from '@mdi/js';
+import { mdiLinkedin, mdiGithub, mdiCropSquare, mdiEmail, mdiCardAccountDetails, mdiChevronDown } from '@mdi/js';
 
 // Internal imports
 import './App.css';
@@ -10,16 +10,11 @@ import vcard from './resources/vcard.vcf';
 
 function App() {
 
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isSocialsOpen, setIsSocialsOpen] = useState(false);
   const [deviceWidth, setDeviceWidth] = useState(window.innerWidth);
 
-  function displaySettings() {
-    setIsSettingsOpen(prevState => !prevState);
-  };
-
-  function handleThemeChange() {
-    setIsDarkMode(prevState => !prevState);
+  function displaySocials() {
+    setIsSocialsOpen(prevState => !prevState);
   };
 
   window.addEventListener("resize", () => {
@@ -38,46 +33,64 @@ function App() {
 
   else {
     return (
-      <main className={`App ${isDarkMode ? "darkMode" : ""}`}>
-        <section className={`ImageContainer ${isSettingsOpen ? "blurred" : ""}`}>
-          <img className="Headshot" src={headshot} alt="Anthony Volk seated in front of brown background"/>
-        </section>
+      <main className="App">
+        <img className="Headshot" src={headshot} alt="Anthony Volk seated in front of brown background"/>
         <section className="InfoContainer">
-          <div className={`InfoHead ${isSettingsOpen? "blurred" : ""}`}>
+          <div className="InfoHead">
             <h1>Anthony Volk</h1>
             <h2 className="InfoHead_position">Aspiring Fullstack Developer</h2>
             <a className="InfoHead_link" href="http://www.anthonyvolk.com" target="_blank" rel="noreferrer"><p>anthonyvolk.com</p></a>
             <div className="ButtonWrapper">
-              <a className="ButtonEmail" href="mailto:anth.volk@gmail.com"><i class="fa-solid fa-envelope"></i><p>Email</p></a>
-              <a className="ButtonLinkedIn" href="https://linkedin.com/in/anthonyvolk" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin"></i><p>LinkedIn</p></a>
-              <a className="ButtonVCF" href={vcard}><i class="fa-solid fa-address-card"></i><p>Add as contact...</p></a>
+              <a className="ButtonVCF btn btn--primary" href={vcard}>
+                <Icon
+                  path={mdiCardAccountDetails}
+                  size={1}
+                />
+                <p>Add contact</p>
+              </a>
+              <button 
+                className="ButtonSocials btn btn--secondary"
+                onClick={displaySocials}
+              >
+                <p>Connect</p>
+              <Icon
+                  path={mdiChevronDown}
+                  size={1}
+              />
+              </button>
+            </div>
+            <div className={`SocialsButtonsWrapper ${isSocialsOpen ? "" : "hidden"}`}>
+              <a className=" btn btn--secondary" href="mailto:anth.volk@gmail.com">
+                <Icon 
+                  path={mdiEmail}
+                  size={1}
+                />
+              </a>
+              <a className=" btn btn--secondary" href="https://linkedin.com/in/anthonyvolk" target="_blank" rel="noreferrer">
+                <Icon
+                  path={mdiLinkedin}
+                  size={1}
+                />
+              </a>
+              <a className=" btn btn--secondary" href="https://github.com/anth-volk" target="_blank" rel="noreferrer">
+                <Icon
+                  path={mdiGithub}
+                  size={1}
+                />
+              </a>
+              <a className="btn btn--secondary" href="https://codesandbox.io/u/anth-volk" target="_blank" rel="noreferrer">
+                <Icon
+                  path={mdiCropSquare}
+                  size={1}
+                />
+              </a>
             </div>
           </div>
-          <div className={`InfoBody ${isSettingsOpen ? "blurred" : ""}`}>
+          <div className="InfoBody">
             <h2>About Me</h2>
             <p>I'm an aspiring fullstack developer with an interest in ethical and just tech that empowers individuals and changes communities. I'm currently looking for full-time and freelance work where I can use my tech skills to make an impact.</p>
             <h2>Interests</h2>
-            <p>Ethical tech and justice. Global history. Cultures and languages. Politics and society. Hiking and long walks. </p>
-          </div>
-          <div className="InfoFooter">
-            <a className="ButtonFooter" href="https://github.com/anth-volk"><i className="fa-brands fa-square-github"></i></a>
-            <a className="ButtonFooter" href="https://codesandbox.io/u/anth-volk"><i className="fa-regular fa-square"></i></a>
-            <div className="ButtonFooter" onClick={displaySettings}><i className="fa-solid fa-gear"></i></div>
-            <div className={`SettingsMenu ${isSettingsOpen ? "" : "hidden"}`}>
-              <h2 className="SettingsHeader">Settings</h2>
-              <div className="SettingsControls">
-                <p className="SettingsText">Light Mode</p>
-                <label className="switch">
-                  <input
-                    type="checkbox"
-                    value={isDarkMode}
-                    onChange={handleThemeChange}
-                  />
-                  <span className="slider"></span>
-                </label>
-                <p className="SettingsText">Dark Mode</p>
-              </div>
-            </div>
+            <p>Ethical tech and justice; global history; cultures and languages; politics and society; hiking and long walks </p>
           </div>
         </section>
       </main>

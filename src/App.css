@@ -100,7 +100,6 @@
     color: var(--p-color);
     font-family: var(--p-font);
     font-size: var(--p-size);
-    text-decoration: none;
   }
 
   i {
@@ -110,6 +109,36 @@
     color: inherit;
   }
 
+  /* Utility classes */
+
+  .btn {
+    margin: 0 auto;
+    width: 100%;
+    border-radius: 4px;
+    padding: 0.25rem 0;
+    display: flex;
+    text-decoration: none;
+    border: none;
+  }
+
+  .btn--primary {
+    color: var(--button-color);
+    background-color: var(--button-background);
+  }
+
+  .btn--primary > p {
+    color: var(--button-color);
+  }
+
+  .btn--secondary {
+    color: var(--button-background);
+    background-color: var(--l1-color);
+    border: 1px solid var(--button-background);
+  }
+
+  .btn--secondary > p {
+    color: var(--button-background);
+  }
 
 
   /* Element Styling */
@@ -127,31 +156,28 @@
     overflow: scroll;
   }
 
-  .ImageContainer, 
+  .Headshot {
+    object-fit: cover;
+    width: 60%;
+    aspect-ratio: 1/1;
+    object-position: 0 0;
+    border-radius: 8px;
+  }
+
   .InfoContainer {
     height: 100%;
     max-width: var(--app-max-width);
     border-radius: 8px;
-  }
-
-  .ImageContainer {
-    width: 60%;
-    overflow: hidden;
-    transition: filter 400ms linear;
-  }
-
-  .Headshot {
-    object-fit: cover;
-  }
-
-  .InfoContainer {
     width: 100%;
+    height: 100%;
+    min-height: 0;
     padding: 2vh 5vw;
     background-color: var(--l1-color);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    overflow: visible;
   }
 
   .InfoHead {
@@ -165,18 +191,6 @@
     transition: filter 400ms linear;
   }
 
-  .InfoFooter {
-    position: relative;
-    margin-top: auto;
-    padding-top: 0.25rem;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 8vw;
-  }
-  
   .InfoHead_position {
     font-size: var(--p-size);
     color: #f57c00;
@@ -190,131 +204,48 @@
   .ButtonWrapper {
     padding-top: 0.5rem;
     display: grid;
-    grid-template: 1fr 1fr / 1fr 1fr;
+    grid-template: 1fr / 1fr 1fr;
     gap: 2vw;
   }
 
-  .ButtonWrapper > a {
-    margin: 0 auto;
-    width: 100%;
-    border-radius: 4px;
-    padding: 0.25rem 0;
-    color: var(--button-color);
-    background-color: var(--button-background);
+  .ButtonWrapper > a,
+  .ButtonWrapper > button {
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
   }
 
-  .ButtonWrapper > a > p {
-    display: inline;
-    padding-left: 8px;
-    color: var(--button-color);
-  }
-
-  .ButtonVCF {
-    grid-column: 1 / -1;
-  }
-
-  .ButtonFooter {
-    cursor: pointer;
-    color: var(--p-color);
-  }
-
-  .SettingsMenu {
-    opacity: 100%;
-    position: absolute;
-    visibility: visible;
-    bottom: 100%;
-    left: 0;
-    background-color: var(--l2-color);
-    width: 100%;
-    border-radius: 8px;
+  .SocialsButtonsWrapper {
     display: grid;
-    grid-template-rows: auto;
-    justify-items: center;
-    transition: opacity 400ms ease-in-out,
-      visibility 400ms ease-in-out;
+    grid-template: 1fr / repeat(4, 1fr);
+    gap: 2vw;
+    opacity: 100%;
+    transition: all 400ms ease-in-out;
+    line-height: auto;
+    max-height: 500px;
   }
 
-  .SettingsControls {
-    width: 100%;
-    display: flex;
+  .SocialsButtonsWrapper > a {
+    margin-top: 0.5em;
     flex-direction: row;
     justify-content: center;
     align-items: center;
   }
 
-  .SettingsText {
-    font-size: var(--h2-size);
-  }
 
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: calc(3.6 * var(--p-size));
-    height: calc(2 * var(--p-size));
-    margin: calc(0.75 * var(--p-size));
-  }
-  
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 40%;
-    left: 0;
-    right: 0;
-    bottom: 40%;
-    border-radius: calc(2*var(--p-size));
-    background-color: white;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: calc(1.6 * var(--p-size));
-    width: calc(1.6 * var(--p-size));
-    left: 0;
-    bottom: -150%;
-    background-color: white;
-    border-radius: 50%;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-    box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.3);
-  }
-  
-  input:checked + .slider:before,
-  input:checked + .slider {
-    background-color: #1769aa;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px var(--accentColor);
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(calc(2 * var(--p-size)));
-    -ms-transform: translateX(calc(2 * var(--p-size)));
-    -moz-transform: translateX(calc(2 * var(--p-size)));
-    transform: translateX(calc(2 * var(--p-size)));
-  }
-
-
-  /* isSettingsOpen Styling */
-  .blurred {
-    -webkit-filter: blur(5px);
-    filter: blur(5px);
-  }
+  /* Override utility classes */
 
   .hidden {
     opacity: 0%;
-    visibility: hidden;
-    transition: opacity 400ms ease-in-out,
-      visibility 400ms ease-in-out;
+    line-height: 0;
+    transition: all 400ms ease-in-out;
+    max-height: 0;
+  }
+
+  .hidden > * {
+    pointer-events: none;
   }
 
   /* Accessibility */
@@ -341,17 +272,13 @@
 
     }
 
-    i {
-      vertical-align: baseline;
-    }
-
     .App {
       display: grid;
       grid-template: 1fr / 1fr 3fr;
       padding: 6vh;
     }
 
-    .ImageContainer {
+    .Headshot {
       height: 60%;
       width: 100%;
     }
@@ -367,18 +294,7 @@
     }
 
     .ButtonWrapper {
-      grid-template: 1fr / 1fr 1fr 1fr;
+      grid-template: 1fr / 1fr 1fr;
     }
 
-    .ButtonVCF {
-      grid-column: inherit;
-    }
-
-    .ButtonFooter {
-      font-size: calc(5 * var(--p-size));
-    }
-
-    i {
-      font-size: calc(1.75 * var(--p-size));
-    }
   }
