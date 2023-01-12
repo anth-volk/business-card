@@ -26,7 +26,7 @@ function App() {
   if (deviceWidth > 991) {
     return (
       <main>
-        <p>This webpage is currently only optimized for mobile use. Please switch to a mobile browser to continue.</p>
+        <p className="TooWideDisplayError">This webpage is currently only optimized for mobile use. Please switch to a mobile browser to continue.</p>
       </main>
     );
   }
@@ -90,7 +90,7 @@ function App() {
             <h2>About Me</h2>
             <p>I'm an aspiring fullstack developer with an interest in ethical and just tech that empowers individuals and changes communities. I'm currently looking for full-time and freelance work where I can use my tech skills to make an impact.</p>
             <h2>Interests</h2>
-            <p>Ethical tech and justice; global history; cultures and languages; politics and society; hiking and long walks </p>
+            <p>Ethical tech and justice; global history; cultures and languages; politics and society; hiking and long-distance trekking</p>
           </div>
         </section>
       </main>

@@ -64,17 +64,6 @@
     --h2-size: calc(1.25 * var(--p-size));
   }
 
-  /* Dark Mode Div Styling */
-  .darkMode {
-    --h1-color: rgba(255,255,255,0.87);
-    --p-color: rgba(255,255,255,0.6);
-    --l1-color: #121212;
-    --l2-color: black;
-    --button-color: rgba(255,255,255,0.87);
-    --button-background: #1769aa;
-  }
-
-
   /* Tag Styling */
 
   h1,
@@ -142,6 +131,11 @@
 
 
   /* Element Styling */
+
+  .TooWideDisplayError {
+    padding: 2vh 2vw;
+    color: black;
+  }
 
   .App {
     min-height: 100vh;
@@ -262,6 +256,17 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --h1-color: rgba(255,255,255,0.87);
+      --p-color: rgba(255,255,255,0.6);
+      --l1-color: #121212;
+      --l2-color: black;
+      --button-color: rgba(255,255,255,0.87);
+      --button-background: #1769aa;
     }
   }
 
