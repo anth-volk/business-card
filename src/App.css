@@ -59,7 +59,7 @@
     
     /* Based on https://css-tricks.com/snippets/css/fluid-typography/ */
 
-    --p-size: calc(11px + (26 - 11) * ((100vw - 300px) / (576 - 300)));
+    --p-size: calc(14px + (26 - 14) * ((100vw - 300px) / (576 - 300)));
     --h1-size: calc(1.5 * var(--p-size));
     --h2-size: calc(1.25 * var(--p-size));
   }
@@ -267,7 +267,7 @@
 
   @media screen and (min-width: 568px) {
     :root {
-      --p-size: calc(11px + (16 - 11) * ((100vw - 568px) / (991 - 568)));
+      --p-size: calc(14px + (16 - 14) * ((100vw - 568px) / (991 - 568)));
       --app-max-width: 900px;
 
     }
