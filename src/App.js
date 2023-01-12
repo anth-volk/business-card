@@ -1,5 +1,7 @@
 // External imports
 import React, { useState } from 'react';
+import Icon from '@mdi/react';
+import { mdiLinkedin, mdiGithub, mdiCropSquare, mdiEmail } from '@mdi/js';
 
 // Internal imports
 import './App.css';
