@@ -1,5 +1,5 @@
 // External imports
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Icon from '@mdi/react';
 import { mdiLinkedin, mdiGithub, mdiCropSquare, mdiEmail, mdiCardAccountDetails, mdiChevronDown } from '@mdi/js';
 
@@ -17,9 +17,16 @@ function App() {
     setIsSocialsOpen(prevState => !prevState);
   };
 
-  window.addEventListener("resize", () => {
-    setDeviceWidth(window.innerWidth);
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setDeviceWidth(window.innerWidth);
+    });
+
+    return () => window.removeEventListener("resize", () => {
+      setDeviceWidth(window.innerWidth);
+    });
   });
+
 
   // If user using large device, like desktop, 
   // indicate that website not available
